@@ -1245,6 +1245,9 @@ public abstract class TextInputControl extends Control {
     }
 
     private void updateUndoRedoState() {
+        if (undoChange == null) {
+            return;
+        }
         undoable.set(undoChange != undoChangeHead);
         redoable.set(undoChange.next != null);
     }
